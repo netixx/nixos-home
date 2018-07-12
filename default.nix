@@ -26,6 +26,12 @@ with lib;
                 default = false;
                 description = "Wether to enable root login via SSH";
             };
+
+            dns = mkOption {
+                type = types.str;
+                default = "1.1.1.1";
+                description = "DNS server to use";
+            };
         };
     };
 
