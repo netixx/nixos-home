@@ -5,5 +5,6 @@
     tcpdump
     htop
     vim
+    git
   ];
 }
