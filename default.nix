@@ -11,7 +11,7 @@ with lib;
 
             syslog = mkOption {
                 type = types.str;
-                default = "";
+                default = "syslog.${config.home.domain}";
                 description = "IP address of the syslog server in the network";
             };
 
