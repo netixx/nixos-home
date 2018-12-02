@@ -25,6 +25,21 @@
     promptInit = ""; # Clear this to avoid a conflict with oh-my-zsh
   };
 
+  programs.screen.screenrc = ''
+    defscrollback 5000
+    termcapinfo xterm* ti@:te@
+
+    escape ^Ff
+    #caption always "%{-b ..}%-w%{+b ..}[[%n%f*%t]]%{-}%+w"
+
+    autodetach on
+    startup_message off
+    hardstatus alwayslastline
+    shelltitle 'bash'
+
+    hardstatus string '%{gk}[%{wk}%?%-Lw%?%{=b kR}(%{W}%n*%f %t%?(%u)%?%{=b kR})%{= w}%?%+Lw%?%? %{g}][%{d}%l%{g}][ %{= w}%Y/%m/%d %0C:%s%a%{g} ]%{W}'
+  '';
+
   users.users.root.shell = "/run/current-system/sw/bin/zsh";
   users.mutableUsers = false;
 }
