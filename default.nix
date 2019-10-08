@@ -44,4 +44,5 @@ with lib;
     ];
 
     config.system.copySystemConfiguration = true;
+    config.nix.gc.automatic = true;
 }
