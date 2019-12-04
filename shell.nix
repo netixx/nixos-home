@@ -1,6 +1,14 @@
 { config, pkgs, ... }:
-
 {
+  environment.systemPackages = with pkgs; [
+    fzf
+  ];
+
+  programs.zsh.ohMyZsh.customPkgs = with pkgs; [
+    pkgs.nix-zsh-completions
+    pkgs.zsh-completions
+  ];
+
   programs.zsh = {
     enable = true;
     /*enableAutosuggestions = true;*/
@@ -14,9 +22,15 @@
       # Customize your oh-my-zsh options here
       ZSH_THEME="funky"
       plugins=()
-
       source $ZSH/oh-my-zsh.sh
+
+      ${pkgs.any-nix-shell} zsh --info-right | source /dev/stdin
+
+      if [ -n "''${commands[fzf-share]}" ]; then
+        source "$(fzf-share)/key-bindings.zsh"
+      fi
     '';
+
     /*ohMyZsh = {
       enable = true;
       theme = "funky";
