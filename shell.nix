@@ -19,7 +19,7 @@
       plugins=()
       source $ZSH/oh-my-zsh.sh
 
-      ${pkgs.any-nix-shell} zsh --info-right | source /dev/stdin
+      ${pkgs.any-nix-shell}/bin/any-nix-shell zsh --info-right | source /dev/stdin
 
       if [ -n "''${commands[fzf-share]}" ]; then
         source "$(fzf-share)/key-bindings.zsh"
