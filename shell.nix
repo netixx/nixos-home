@@ -4,11 +4,6 @@
     fzf
   ];
 
-  programs.zsh.ohMyZsh.customPkgs = with pkgs; [
-    pkgs.nix-zsh-completions
-    pkgs.zsh-completions
-  ];
-
   programs.zsh = {
     enable = true;
     /*enableAutosuggestions = true;*/
@@ -31,6 +26,10 @@
       fi
     '';
 
+    ohMyZsh.customPkgs = with pkgs; [
+      pkgs.nix-zsh-completions
+      pkgs.zsh-completions
+    ];
     /*ohMyZsh = {
       enable = true;
       theme = "funky";
