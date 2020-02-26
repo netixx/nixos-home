@@ -1,6 +1,9 @@
 { config, pkgs, ... }:
 
 {
+  services.journald.extraConfig = ''
+    MaxRetentionSec=1week
+  '';
   services.syslog-ng = {
     enable=true;
     configHeader = ''
