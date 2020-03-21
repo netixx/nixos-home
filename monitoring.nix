@@ -12,7 +12,7 @@
           error log = syslog
         [registry]
           enabled = ${if config.home.netdataRegistry then "yes" else "no"}
-          registry to announce = http://10.0.254.254:19999
+          registry to announce = https://netdata.sup.infra.xinet.fr
       '';
   };
 }
